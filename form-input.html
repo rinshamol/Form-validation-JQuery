@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <form action="" id="myForm" onsubmit="validation(); return false; ">
+    <form action="" id="myForm" onsubmit="validation(); return false;">
        <div class="form-div"> <h1>Form Validation</h1>
         <div class="inp">
         <label for="input">Name <span>*</span></label>
@@ -56,7 +56,49 @@
     </form>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
-        
+         function validation(){
+        let isValid = true;
+        if($('#name').val()==''){
+            $('#er1').show();
+            isValid=false;
+        }else{
+           $('#er1').hide();
+        }
+        if($('#email').val()==''){
+            $('#er2').show();
+            isValid=false;
+        }else{
+           $('#er2').hide();
+        }
+        if($('#password').val()==''){
+            $('#er3').show();
+            isValid=false;
+        }else{
+            $('#er3').hide();
+        }
+        if($('#address').val()==''){
+            $('#er4').show();
+            isValid=false;
+        }else{
+            $('#er4').hide();
+        }
+        if(!$('input[name="gender"]:checked').length){
+            $('#er5').show();
+            isValid=false;
+        }else{
+            $('#er5').hide();
+        }
+        if(!$('input[name="check"]:checked').length){
+            $('#er6').show();
+            isValid=false;
+        }else{
+            $('#er6').hide();
+        }
+        if(isValid){
+            alert("Form Submitted Successfully!!");
+            return true;
+        }
+    }
     </script>
 </body>
 </html>
