@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Style-btn.css">
+    <title>Form-btn-jq</title>
+</head>
+<body>
+    
+    <form action="" id="myForm">
+       <div class="form-div"> <h1>Form Validation</h1>
+       
+      <div class="inp">
+        <label for="input">Name <span>*</span></label>
+        <input class="text" type="text" id="name" name="name" placeholder="Enter your Name">
+         <div class="error" id="er1">This Field is required</div>
+        </div>  
+         <div class="inp">
+            <label for="input">Email <span>*</span></label>
+        <input class="text" type="email" id="email" name="email" placeholder="Enter your Email">
+        <div class="error" id="er2">This Field is required</div>
+    </div>  
+    <div class="inp">
+   <label for="input">password <span>*</span></label>
+     <input class="text" type="password" id="password" name="password" placeholder="Enter your password">
+     <div class="error" id="er3">This Field is required</div>
+    </div>         
+     <div class="inp">
+        <label for="input">Address <span>*</span></label>
+        <textarea name="address" id="address" placeholder="Enter your address" ></textarea>
+        <div class="error" id="er4">This Field is required</div>
+    </div>         
+
+       <h3>Gender <span>*</span><div class="error2" id="er5">(This Field is required)</div></h3>
+       <div class="gender" ><label for="radio">Male</label>
+       <input class="radio" type="radio" id="male" name="gender">
+       <label for="radio">Female</label>
+       <input class="radio" type="radio" id="female" name="gender"></div>
+
+       <h3>Hobbies<span>*</span><div class="error2" id="er6">(This Field is required)</div></h3>
+      <div class="hb"><div class="hb1"><label for="checkbox">Reading</label>
+       <input type="checkbox" name="check" id="read"></div>
+       <div class="hb3"> <label for="checkbox" >Singing</label>
+       <input type="checkbox" name="check" id="sing"></div>
+       <div class="hb2"><label for="checkbox">Painting</label>
+       <input type="checkbox" name="check" id="paint"></div></div>
+       <div class="hb"><div class="hb1"><label for="checkbox">Drawing</label>
+       <input type="checkbox" name="check" id="Draw"></div>
+       <div class="hb3"><label for="checkbox">Swimming</label>
+       <input type="checkbox" name="check" id="swim"></div>
+       <div class="hb2 hb2-1"><label for="checkbox">Photography</label>   
+       <input type="checkbox" name="check" id="photo"></div></div>
+      <div class="btn-div"><button id="btn" type="button" class="btn" onclick="validation();">Submit</button></div> 
+    </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+    function validation(){
+        let isValid = true;
+        if($('#name').val()==''){
+            $('#er1').show();
+            isValid=false;
+        }else{
+           $('#er1').hide();
+        }
+        if($('#email').val()==''){
+            $('#er2').show();
+            isValid=false;
+        }else{
+           $('#er2').hide();
+        }
+        if($('#password').val()==''){
+            $('#er3').show();
+            isValid=false;
+        }else{
+            $('#er3').hide();
+        }
+        if($('#address').val()==''){
+            $('#er4').show();
+            isValid=false;
+        }else{
+            $('#er4').hide();
+        }
+        if(!$('input[name="gender"]:checked').length){
+            $('#er5').show();
+            isValid=false;
+        }else{
+            $('#er5').hide();
+        }
+        if(!$('input[name="check"]:checked').length){
+            $('#er6').show();
+            isValid=false;
+        }else{
+            $('#er6').hide();
+        }
+        if(isValid){
+            $('#myForm').submit();
+            alert("Form Submitted Successfully!!");
+        }
+    }
+    </script>
+</body>
+</html>
